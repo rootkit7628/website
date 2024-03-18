@@ -1,4 +1,5 @@
-use crate::models;
+use crate::models::user::UserSchema;
+use axum_macros::debug_handler;
 use axum::{extract::Extension, http::StatusCode, response::{Html, IntoResponse}, Json};
 use async_graphql::http::{playground_source, GraphQLPlaygroundConfig};
 use async_graphql_axum::{GraphQLRequest, GraphQLResponse};
@@ -35,6 +36,7 @@ pub(crate) async fn playground() -> impl IntoResponse {
     ))
 }
 
-pub(crate)  async fn handler(req: GraphQLRequest, Extension(schema): Extension<models::user::UserSchema>) -> GraphQLResponse {
-    schema.execute(req.into_inner()).await.into()
+#[debug_handler]
+pub(crate)  async fn handler(Extension(schema): Extension<UserSchema>, req: GraphQLRequest) -> GraphQLResponse {
+    schema.execute(req.0).await.into()
 }

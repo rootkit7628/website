@@ -9,6 +9,11 @@ components = ["rustfmt", "clippy"]
 
 [dependencies]
 axum = "0.7.4"
+axum-macros = "0.4.1"
+
+metrics = "0.22.1"
+metrics-exporter-prometheus = "0.13.1"
+
 async-graphql = "7.0.2"
 async-graphql-axum = "7.0.2"
 serde = { version = "1.0.197", features = ["derive"] }
