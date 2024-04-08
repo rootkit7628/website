@@ -17,6 +17,5 @@ pub fn init() -> Result<()> {
 }
 
 pub fn connect() -> Connection {
-    let conn = Connection::open("database.db").unwrap();
-    conn
+    Connection::open("database.db").unwrap()
 }
