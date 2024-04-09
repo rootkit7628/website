@@ -3,7 +3,8 @@ use axum::{
     Router,
 };
 use dotenv::dotenv;
-use routes::project::ProjectRoutes;
+use routes::{project::ProjectRoutes, user::UserRoutes};
+
 use std::{env, net::SocketAddr};
 
 pub mod database;
@@ -26,7 +27,8 @@ async fn main() {
                 .route("/project/:id", get(ProjectRoutes::get))
                 .route("/project", post(ProjectRoutes::create))
                 .route("/project/:id", put(ProjectRoutes::update))
-                .route("/project/:id", delete(ProjectRoutes::delete));
+                .route("/project/:id", delete(ProjectRoutes::delete))
+                .route("/user", post(UserRoutes::create));
 
             let listener = tokio::net::TcpListener::bind(format!("{}:{}", hostname, port))
                 .await

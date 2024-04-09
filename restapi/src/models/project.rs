@@ -50,7 +50,7 @@ impl ProjectORM {
         res.ok()
     }
 
-    pub fn insert(&self, project: &ProjectIN) -> i64 {
+    pub fn create(&self, project: &ProjectIN) -> i64 {
         self.conn
             .execute(
                 "INSERT INTO projects (name, description) VALUES (?1, ?2)",
@@ -74,7 +74,7 @@ impl ProjectORM {
                 project
             }
             None => {
-                let id = self.insert(data);
+                let id = self.create(data);
                 ProjectOUT {
                     id,
                     name: data.name.clone(),

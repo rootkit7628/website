@@ -1,0 +1,16 @@
+POST http://0.0.0.0:5000/user
+Content-Type: application/json
+
+{
+     "firstname": "Arlème",
+     "lastname": "Johnson",
+     "email": "arleme.dev7@gmail.com",
+     "phone_1": "+2613466523232",
+     "phone_2": "2613466523232",
+     "address": "Andoharanofotsy Soarano",
+     "city": "+261386655099",
+     "country": "Madagascar",
+     "biography": "A young special boy",
+     "picture": "https://test.png",
+     "wallpaper": "https://wallpaper.png"
+}

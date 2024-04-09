@@ -50,7 +50,7 @@ impl ProjectRoutes {
         logging(&format!("POST from {addr} /project"));
         // Create a new project
         let orm = ProjectORM::new(Self::new().conn);
-        let id = orm.insert(&project);
+        let id = orm.create(&project);
 
         Json(ProjectOUT {
             id,
