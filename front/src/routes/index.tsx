@@ -1,10 +1,10 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
-import Counter from "../components/starter/counter/counter";
-import Hero from "../components/starter/hero/hero";
-import Infobox from "../components/starter/infobox/infobox";
-import Starter from "../components/starter/next-steps/next-steps";
+import Counter from "../components/body/counter/counter";
+import Hero from "../components/body/hero/hero";
+import Infobox from "../components/body/infobox/infobox";
+import Starter from "../components/body/next-steps/next-steps";
 
 export default component$(() => {
   return (
@@ -102,11 +102,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title: "Arleme Johnson",
   meta: [
     {
       name: "description",
-      content: "Qwik site description",
+      content: "Arleme Jonhson's personal website",
     },
   ],
 };

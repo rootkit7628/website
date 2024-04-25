@@ -2,14 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 2% !important;
 }
 
 .logo {
   display: inline-block;
 }
-.logo a {
-  display: block;
-}
+
 
 .header ul {
   margin: 0;
@@ -23,7 +22,7 @@
   display: none;
   margin: 0;
   padding: 0;
-  font-size: 0.7rem;
+  font-size: 1.3rem;
 }
 
 .header li a {
@@ -34,7 +33,7 @@
 }
 
 .header li a:hover {
-  color: var(--qwik-light-blue);
+  color: var(--qwik-red);
 }
 
 @media (min-width: 450px) {

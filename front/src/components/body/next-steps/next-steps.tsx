@@ -45,37 +45,13 @@ export default component$(() => {
   return (
     <div class="container container-purple container-center">
       <h2>
-        Time for a
+        What can I do
         <br />
-        <span class="highlight">qwik intro</span>?
+        <span class="highlight">for you</span>?
       </h2>
       <div class={styles.gettingstarted}>
-        <div
-          class={styles.intro}
-          dangerouslySetInnerHTML={
-            GETTING_STARTED_STEPS[gettingStartedStep.value].message
-          }
-        />
-        <span
-          class={styles.hint}
-          dangerouslySetInnerHTML={
-            GETTING_STARTED_STEPS[gettingStartedStep.value].hint
-          }
-        />
+
       </div>
-      {gettingStartedStep.value + 1 < GETTING_STARTED_STEPS.length ? (
-        <button class="button-dark" onClick$={() => gettingStartedStep.value++}>
-          Continue with Step {gettingStartedStep.value + 2} of{" "}
-          {GETTING_STARTED_STEPS.length}
-        </button>
-      ) : (
-        <button
-          class="button-dark"
-          onClick$={() => (gettingStartedStep.value = 0)}
-        >
-          Re-Start
-        </button>
-      )}
     </div>
   );
 });

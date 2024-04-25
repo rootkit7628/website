@@ -50,4 +50,32 @@ impl UserORM {
             .unwrap();
         self.conn.last_insert_rowid()
     }
+
+    pub fn get(&self, id: i64) -> Option<UserOUT> {
+        let mut stmt = self
+            .conn
+            .prepare("SELECT * FROM users WHERE id = ?1")
+            .unwrap();
+        let user_iter = stmt
+            .query_map(&[&id], |row| {
+                Ok(UserOUT {
+                    id: row.get(0)?,
+                    firstname: row.get(1)?,
+                    lastname: row.get(2)?,
+                    email: row.get(3)?,
+                    phone_1: row.get(4)?,
+                    phone_2: row.get(5)?,
+                    address: row.get(6)?,
+                    city: row.get(7)?,
+                    country: row.get(8)?,
+                    biography: row.get(9)?,
+                    picture: row.get(10)?,
+                    wallpaper: row.get(11)?,
+                })
+            })
+            .unwrap();
+        user_iter
+            .map(|user| user.unwrap())
+            .next()
+    }
 }
